@@ -57,17 +57,18 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Number of mails
         self.labelNumEmails = QLabel(self)
-        self.labelNumEmails.move(900, 0)
+        self.labelNumEmails.move(900, 700)
         self.labelNumEmails.hide()
         self.labelNumEmails.setText("Number of Mails") 
  
         self.textBrowserNumEmails = QTextBrowser(self)
-        self.textBrowserNumEmails.move(900,25)
+        self.textBrowserNumEmails.move(900,725)
         self.textBrowserNumEmails.setObjectName("textBrowserNumEmails")
         self.textBrowserNumEmails.hide()
 
         # Send Mail Button
         self.sendMailButton = QPushButton('Send Mail', self)
+        self.sendMailButton.setStyleSheet("background-color: green; color: white;")
         self.sendMailButton.setToolTip('Click to send mail')
         self.sendMailButton.move(100,25)
         self.sendMailButton.clicked.connect(self.sendMail)     
@@ -75,7 +76,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Logout button
         self.logoutButton = QPushButton('Log out', self)
-        self.logoutButton.move(0,25)
+        self.logoutButton.setStyleSheet("background-color: red; color: white;")
+        self.logoutButton.move(900, 25) 
         self.logoutButton.setObjectName("logoutButton")
         self.logoutButton.hide()
         self.logoutButton.clicked.connect(self.logout)  
@@ -107,14 +109,15 @@ class MainWindow(QtWidgets.QMainWindow):
         self.deleteMailButton.clicked.connect(self.deleteMailClicked)
 
         # Button to reset deletion marks
-        self.resetMailButton = QPushButton('Reset marks', self)
-        self.resetMailButton.move(700, 25)
-        self.resetMailButton.hide()
-        self.resetMailButton.clicked.connect(self.pop3.resetDeletion)
+        # self.resetMailButton = QPushButton('Reset marks', self)
+        # self.resetMailButton.move(700, 25)
+        # self.resetMailButton.hide()
+        # self.resetMailButton.clicked.connect(self.pop3.resetDeletion)
         
         # Refresh mails
         self.refreshButton = QPushButton('Refresh', self)
-        self.refreshButton.move(800, 25)
+        self.refreshButton.setStyleSheet("background-color: green; color: white;")
+        self.refreshButton.move(0,25)
         self.refreshButton.hide()
         self.refreshButton.clicked.connect(self.pop3.relogin)
 
@@ -132,6 +135,7 @@ class MainWindow(QtWidgets.QMainWindow):
         login = LoginDialog(parent=self, pop3=self.pop3, parentWindow=main)
         self.loginButton.hide()
         login.show()
+        login.setStyleSheet("background-color: white;")
         if not login.exec_(): 
             self.statusBar().showMessage('Log in cancelled')
     
@@ -158,7 +162,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.backToMainButton.hide()
         self.deleteMailButton.hide()
         self.sendMailButton.hide()
-        self.resetMailButton.hide()
+        #self.resetMailButton.hide()
 
     
     # Asking to quit
