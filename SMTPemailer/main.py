@@ -49,7 +49,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.loginButton = QPushButton('Log in', self)
         self.loginButton.setToolTip('Click to log in')
         self.loginButton.setObjectName("loginButton")
-        self.loginButton.move(0,25)
+        self.loginButton.move(425,300)
+        self.loginButton.resize(200,50)
+        self.loginButton.setStyleSheet("background-color: green; color: white; font-size: 20px;")
 
         self.loginButton.clicked.connect(self.login)    
 
@@ -120,7 +122,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.resize(1024, 768)
         self.center()
         self.setWindowTitle('CS3800 Email Client')
-        self.setWindowIcon(QIcon('test.png'))        
+        self.setWindowIcon(QIcon('test.png')) 
+        self.setStyleSheet("background-color: white;")
         self.show()
 
     # Log in POP3
