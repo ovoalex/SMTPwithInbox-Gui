@@ -78,7 +78,7 @@ class LoginDialog(QDialog):
             self.mainWindow.sendMailButton.show()
             self.mainWindow.logoutButton.show()
             self.mainWindow.refreshButton.show()
-            self.mainWindow.resetMailButton.show()
+            #self.mainWindow.resetMailButton.show()
 
             # Save login configuration to use with smtp
             self.mainWindow.accountInfo = {
